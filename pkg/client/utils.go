@@ -14,7 +14,7 @@ type UnifiErrorResponse struct {
 	Message   string                 `json:"message"`
 }
 
-func (c *Unifi) doRequest(method, path string, body io.Reader) (*http.Response, error) {
+func (c *Unifi) Do(method, path string, body io.Reader) (*http.Response, error) {
 	endpoint, err := c.Endpoint(path)
 	if err != nil {
 		return nil, err

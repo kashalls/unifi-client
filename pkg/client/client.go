@@ -66,7 +66,7 @@ func (c *Unifi) Login() error {
 		endpoint = LoginExternalEndpoint
 	}
 
-	resp, err := c.doRequest("POST", endpoint, bytes.NewBuffer(body))
+	resp, err := c.Do("POST", endpoint, bytes.NewBuffer(body))
 	if err != nil {
 		return err
 	}
@@ -90,6 +90,6 @@ func (c *Unifi) Logout() error {
 		return nil
 	}
 
-	_, err := c.doRequest("POST", LogoutEndpoint, nil)
+	_, err := c.Do("POST", LogoutEndpoint, nil)
 	return err
 }
